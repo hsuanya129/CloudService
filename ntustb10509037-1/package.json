@@ -1,0 +1,16 @@
+{
+  "name": "ntustb10509037-1",
+  "version": "1.0.0",
+  "description": "my local node js application demo",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Hsuan",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}
