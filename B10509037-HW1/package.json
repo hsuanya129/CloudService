@@ -1,0 +1,17 @@
+{
+  "name": "b10509037-hw1",
+  "version": "1.0.0",
+  "description": "HW1",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "TZU-HSUAN YEH",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "path": "^0.12.7",
+    "watson-developer-cloud": "^3.12.0"
+  }
+}

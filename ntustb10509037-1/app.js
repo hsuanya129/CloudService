@@ -10,15 +10,15 @@ var bodyParser = require('body-parser');
 //parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// In case the caller calls GET to the root '/', return 'views/index.html' file.
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'views/index.html'));
-});
 
-// In case the caller calls POST to /author, return 'Author name'
-app.post('/author', function(req, res) {
-    res.send('Author name');
-});
+//Routes modules
+var index = require('./routes');
+var author = require('./routes/author');
+
+//In case the caller access any URI under the root /, call index route
+app.use('/', index);
+//In case the caller access any URI under /author, call author route
+app.use('/author', author);
 
 // start server on the specified port and binding host
 app.listen(port, function(req, res){
