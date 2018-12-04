@@ -23,7 +23,7 @@ exports.personalityAnalyzer = function (req, callback) {
     if (error)
       callback(error, null);
     else
-      callback(null, profile);
+      callback(null, JSON.stringify(profile,null,2));
   });
 
 
