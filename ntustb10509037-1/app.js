@@ -12,10 +12,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //Routes modules
-var index = require('./routes');
+var index = require('./routes/index');
 var author = require('./routes/author');
 
-//In case the caller access any URI under the root /, call index route
+
+//當網址打上/ 啟用後面index方法 會參照上方的 var index = require(./routes/index)
 app.use('/', index);
 //In case the caller access any URI under /author, call author route
 app.use('/author', author);
