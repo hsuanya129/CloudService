@@ -1,20 +1,26 @@
-var express = require('express');
+
+var port = process.env.VCAP_APP_PORT || 5000;
+
+//Express Web Framework, and create a new express server
+var express = require('express'),
+app = express();
 var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var bodyParser = require('body-parser');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
 
-var app = express();
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//Routes modules
+var index = require('./routes/index');
+var article = require('./routes/article');
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//In case the caller access any URI under the root /, call index route 當網址後面為'/' 呼叫index
+app.use('/', index);
+//In case the caller access any URI under /author, call author route
+app.use('/article', article);
 
-module.exports = app;
+// start server on the specified port and binding host
+app.listen(port, function(req, res){
+    console.log(`Server started on port` + port);
+});
