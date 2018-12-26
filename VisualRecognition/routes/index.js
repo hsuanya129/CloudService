@@ -1,6 +1,7 @@
 // index.js - Index route module
 var express = require('express');
 var router = express.Router();
+var visualRecognition = require('../services/vrService');
 
 //Provides utilities for dealing with directories
 var path = require('path');

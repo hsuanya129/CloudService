@@ -13,12 +13,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //Routes modules
 var index = require('./routes/index');
-var article = require('./routes/article');
+var photograph = require('./routes/photograph');
 
 //In case the caller access any URI under the root /, call index route 當網址後面為'/' 呼叫index
 app.use('/', index);
+app.use('/visualrecognition', photograph);
 //In case the caller access any URI under /author, call author route
-app.use('/article', article);
+
 
 // start server on the specified port and binding host
 app.listen(port, function(req, res){
